@@ -1,0 +1,1 @@
+web: ./gradlew compileJava bootRun
