@@ -32,7 +32,7 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-buildNeeded {
+jar {
     manifest {
         attributes(
                 'Main-Class': 'pl.edu.agh.pmakarewicz.moviestars.MoviestarsApplication'
