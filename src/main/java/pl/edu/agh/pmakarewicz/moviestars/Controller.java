@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import freemarker.template.Template;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +25,9 @@ public class Controller {
 
     @Autowired
     private FreemarkerConfiguration configuration;
+
+    @Value("${serpapi_key}")
+    private String serpapiKey;
 
     @GetMapping("/")
     public RedirectView getIndex(){
@@ -79,8 +83,8 @@ public class Controller {
         Gson gson = new Gson();
         JsonElement root = gson.fromJson(jsonStr, JsonElement.class);
         return root.getAsJsonObject()
-                .get("images_results").getAsJsonObject()
-                .get("0").getAsJsonObject()
+                .get("images_results").getAsJsonArray()
+                .get(0).getAsJsonObject()
                 .get("original").getAsString();
 
         } catch (Exception e) {
@@ -95,7 +99,6 @@ public class Controller {
 
     }
     private String performRequestToSerpapi(String firstname, String lastname) throws IOException {
-        String serpapiKey = System.getProperties().getProperty("serpapi_key");
         URL url = new URL(String.format("https://serpapi.com/search.json?q=%s+%s&tbm=isch&ijn=0&api_key=%s", firstname, lastname, serpapiKey));
         return performRequest(url);
     }

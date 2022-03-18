@@ -10,9 +10,13 @@ public class MoviestarsApplication {
 
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(MoviestarsApplication.class);
-        app.setDefaultProperties(Collections
-                .singletonMap("server.port", System.getenv("PORT")));
-        app.run(args);
+        try {
+            app.setDefaultProperties(Collections
+                    .singletonMap("server.port", System.getenv("PORT")));
+        } finally {
+            app.run(args);
+        }
+
     }
 
 }
