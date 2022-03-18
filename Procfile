@@ -1,1 +1,1 @@
-web: ./gradlew compileJava bootRun
+web: ./gradlew compileJava bootRun -Dserver.port=$PORT
