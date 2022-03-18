@@ -38,4 +38,9 @@ jar {
                 'Main-Class': 'pl.edu.agh.pmakarewicz.moviestars.MoviestarsApplication'
         )
     }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
 }
