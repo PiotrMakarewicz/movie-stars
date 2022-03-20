@@ -16,11 +16,10 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.*;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
+import java.util.concurrent.atomic.AtomicReference;
 
 @RestController
 public class Controller {
@@ -46,15 +45,35 @@ public class Controller {
         model.put("lastname", lastname);
 
         //TODO: asynchronicznie
-        String bio = getBio(firstname, lastname);
-        String imageLink = getImageLink(firstname, lastname);
 
-        Map<String, String> details = getPersonDetails(firstname, lastname);
+        AtomicReference<String> bio = new AtomicReference<>();
+        Thread t1 = new Thread(() -> {
+            bio.set(getBio(firstname, lastname));
+        });
 
-        model.put("bio", bio);
-        model.put("imagelink", imageLink);
-        model.putAll(details);
+
+        AtomicReference<String> imageLink = new AtomicReference<>();
+        Thread t2 = new Thread(() -> {
+            imageLink.set(getImageLink(firstname, lastname));
+        });
+
+        AtomicReference<Map<String, String>> details = new AtomicReference<>();
+        Thread t3 = new Thread(() -> {
+            details.set(getPersonDetails(firstname, lastname));
+        });
+
         try {
+        t1.start();
+        t2.start();
+        t3.start();
+        t1.join();
+        t2.join();
+        t3.join();
+
+        model.put("bio", bio.get());
+        model.put("imagelink", imageLink.get());
+        model.putAll(details.get());
+
             Template template = configuration.getTemplate("results.html");
             Writer stringWriter = new StringWriter();
             template.process(model, stringWriter);

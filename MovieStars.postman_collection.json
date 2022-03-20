@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "41ad2a13-6811-4aba-ae7d-b2c597435783",
+		"name": "MovieStars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Wikipedia | Tom Cruise",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://en.wikipedia.org/w/api.php?titles=Magnus+Carlsen&action=query&prop=extracts&explaintext=true&format=json&exsectionformat=plain&exintro=true",
+					"protocol": "https",
+					"host": [
+						"en",
+						"wikipedia",
+						"org"
+					],
+					"path": [
+						"w",
+						"api.php"
+					],
+					"query": [
+						{
+							"key": "titles",
+							"value": "Magnus+Carlsen"
+						},
+						{
+							"key": "action",
+							"value": "query"
+						},
+						{
+							"key": "prop",
+							"value": "extracts"
+						},
+						{
+							"key": "explaintext",
+							"value": "true"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						},
+						{
+							"key": "exsectionformat",
+							"value": "plain"
+						},
+						{
+							"key": "exintro",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Wikipedia | Johnny Depp",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://en.wikipedia.org/w/api.php?titles=Garry+Kasparov&action=query&prop=extracts&explaintext=true&format=json&exintro=true&exsectionformat=plain",
+					"protocol": "https",
+					"host": [
+						"en",
+						"wikipedia",
+						"org"
+					],
+					"path": [
+						"w",
+						"api.php"
+					],
+					"query": [
+						{
+							"key": "titles",
+							"value": "Garry+Kasparov"
+						},
+						{
+							"key": "action",
+							"value": "query"
+						},
+						{
+							"key": "prop",
+							"value": "extracts"
+						},
+						{
+							"key": "explaintext",
+							"value": "true"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						},
+						{
+							"key": "exintro",
+							"value": "true"
+						},
+						{
+							"key": "exsectionformat",
+							"value": "plain"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CelebrityNinjas | Tom Cruise",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Api-Key",
+						"value": "5Jy9OlMfu6J3sDtuROFKIA==bskx8Gg3iKxOj862",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.celebrityninjas.com/v1/search?name=Tom+Cruise",
+					"protocol": "https",
+					"host": [
+						"api",
+						"celebrityninjas",
+						"com"
+					],
+					"path": [
+						"v1",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Tom+Cruise"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CelebrityNinjas | Johnny Depp",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Api-Key",
+						"value": "5Jy9OlMfu6J3sDtuROFKIA==bskx8Gg3iKxOj862",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.celebrityninjas.com/v1/search?name=Tom+Cruise",
+					"protocol": "https",
+					"host": [
+						"api",
+						"celebrityninjas",
+						"com"
+					],
+					"path": [
+						"v1",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Tom+Cruise"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Results | Johnny Depp",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Api-Key",
+						"value": "5Jy9OlMfu6J3sDtuROFKIA==bskx8Gg3iKxOj862",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://movie-stars-pm.herokuapp.com/results?firstname=Johnny&lastname=Depp",
+					"protocol": "https",
+					"host": [
+						"movie-stars-pm",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"results"
+					],
+					"query": [
+						{
+							"key": "firstname",
+							"value": "Johnny"
+						},
+						{
+							"key": "lastname",
+							"value": "Depp"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Results | Tom Cruise",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Api-Key",
+						"value": "5Jy9OlMfu6J3sDtuROFKIA==bskx8Gg3iKxOj862",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://movie-stars-pm.herokuapp.com/results?firstname=Tom&lastname=Cruise",
+					"protocol": "https",
+					"host": [
+						"movie-stars-pm",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"results"
+					],
+					"query": [
+						{
+							"key": "firstname",
+							"value": "Tom"
+						},
+						{
+							"key": "lastname",
+							"value": "Cruise"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SERP | Tom Cruise",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://serpapi.com/search.json?q=Tom+Cruise&tbm=isch&ijn=0&api_key=6e296c68c99946c98116664a9edd28168406c45d7a4f6ec676baa7771e3edc99",
+					"protocol": "https",
+					"host": [
+						"serpapi",
+						"com"
+					],
+					"path": [
+						"search.json"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Tom+Cruise"
+						},
+						{
+							"key": "tbm",
+							"value": "isch"
+						},
+						{
+							"key": "ijn",
+							"value": "0"
+						},
+						{
+							"key": "api_key",
+							"value": "6e296c68c99946c98116664a9edd28168406c45d7a4f6ec676baa7771e3edc99"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SERP | Johnny Depp",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://serpapi.com/search.json?q=Tom+Cruise&tbm=isch&ijn=0&api_key=6e296c68c99946c98116664a9edd28168406c45d7a4f6ec676baa7771e3edc99",
+					"protocol": "https",
+					"host": [
+						"serpapi",
+						"com"
+					],
+					"path": [
+						"search.json"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Tom+Cruise"
+						},
+						{
+							"key": "tbm",
+							"value": "isch"
+						},
+						{
+							"key": "ijn",
+							"value": "0"
+						},
+						{
+							"key": "api_key",
+							"value": "6e296c68c99946c98116664a9edd28168406c45d7a4f6ec676baa7771e3edc99"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
